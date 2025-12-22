@@ -1,34 +1,37 @@
 const initialState = {
   cart: [],
-  total: 0
 };
 
 const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_TO_CART": {
-      const productFound = state.cart.find(
-        (item) => item.id === action.payload.id
-      );
+      const isPresent= state.cart.find((item)=>{
+          return item.id === action.payload.id
+      })
 
-      // Product already exists → increase quantity
-      if (productFound) {
-        const updatedCart = state.cart.map((item) =>
-          item.id === action.payload.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        );
-
-        return {
-          ...state,
-          cart: updatedCart
-        };
+      if(isPresent){
+        return state
       }
-
-      // Product does not exist → add new item
-      return {
+      const updatedData= {
         ...state,
-        cart: [...state.cart, { ...action.payload, quantity: 1 }]
-      };
+        cart: [...state.cart, action.payload]
+      }
+      return updatedData
+    }
+    case "REMOVE_FROM_CART": {
+
+      console.log("action.payload= ", action.payload)
+      const updatedCartItem= state.cart.filter((item)=>{
+
+        return item.id !== action.payload
+      })
+
+      console.log("updatedCartItem= ", updatedCartItem)
+      const updatedState={
+        ...state,
+        cart: updatedCartItem
+      }
+      return updatedState
     }
 
     default:

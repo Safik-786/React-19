@@ -67,15 +67,16 @@ import { FaHome } from "react-icons/fa";
 import Card from './Components/Card';
 import UseContext from './Components/Hooks/useContext';
 import { useTheme } from './context/ThemeContext';
+import CartComponent from './ReduxState/ReduxComponent/CartComponent';
+import CartNavbar from './ReduxState/ReduxComponent/CartNavbar';
 
 
 function App() {
-  // const {theme, setTheme, toggleTheme}= useContext(ThemeContext)
-  const {theme, setTheme, toggleTheme}= useTheme()
   return (
-    <div className={`h-screen ${theme === "dark" ? "bg-green-800 text-white":"bg-green-50 text-black" }`}>
 
-      <button className='shadow p-2' onClick={toggleTheme}>Toggle Theme</button>
+    <div className={`h-screen`}>
+
+      <CartNavbar/>
       {/* <FaHome /> */}
       {/* <Card title="safik"
         description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque aperiam delectus pariatur accusamus architecto expedita id aspernatur rerum, atque accusantium facere qui dolorem minus nemo? Culpa possimus asperiores nulla aperiam eveniet? Ipsam."
@@ -88,7 +89,7 @@ function App() {
       <Card title="ajsdgh"
         description="Lorem ipsum ajfuq ajsvcuyg nulla aperiam eveniet? Ipsam."
         email="ytsafik2@gmail.com" /> */}
-        <UseContext/>
+        <CartComponent/>
     </div>
   )
 }
