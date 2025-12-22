@@ -61,18 +61,23 @@
 
 
 
-import React from 'react'
+import React, { useContext } from 'react'
 // import img from './assets/img/img.jpg'
 import { FaHome } from "react-icons/fa";
 import Card from './Components/Card';
+import UseContext from './Components/Hooks/useContext';
+import { useTheme } from './context/ThemeContext';
 
 
 function App() {
+  // const {theme, setTheme, toggleTheme}= useContext(ThemeContext)
+  const {theme, setTheme, toggleTheme}= useTheme()
   return (
-    <div className=''>
-      fmbewjfhefh
+    <div className={`h-screen ${theme === "dark" ? "bg-green-800 text-white":"bg-green-50 text-black" }`}>
+
+      <button className='shadow p-2' onClick={toggleTheme}>Toggle Theme</button>
       {/* <FaHome /> */}
-      <Card title="safik"
+      {/* <Card title="safik"
         description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque aperiam delectus pariatur accusamus architecto expedita id aspernatur rerum, atque accusantium facere qui dolorem minus nemo? Culpa possimus asperiores nulla aperiam eveniet? Ipsam."
         email="ytsafik2@gmail.com" />
 
@@ -82,7 +87,8 @@ function App() {
         email="ytsafik2@gmail.com" />
       <Card title="ajsdgh"
         description="Lorem ipsum ajfuq ajsvcuyg nulla aperiam eveniet? Ipsam."
-        email="ytsafik2@gmail.com" />
+        email="ytsafik2@gmail.com" /> */}
+        <UseContext/>
     </div>
   )
 }

@@ -12,6 +12,7 @@ import { Provider } from 'react-redux'
 import { store } from './ReduxState/store.jsx'
 import ReduxComponent from './ReduxState/ReduxComponent/CountComponent.jsx'
 import App from './App.jsx'
+import ThemeContextProvider from './context/ThemeContext.jsx'
 
 
 const client = new QueryClient({
@@ -28,7 +29,9 @@ createRoot(document.getElementById('root')).render(
       <Provider store={store}>
         {/* <Demo /> */}
         {/* <Demo /> */}
-        <App/>
+        <ThemeContextProvider>
+          <App />
+        </ThemeContextProvider>
         {/* <ReduxComponent /> */}
       </Provider>
       {/* <Props/> */}

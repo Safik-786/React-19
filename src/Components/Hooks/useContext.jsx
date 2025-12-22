@@ -1,13 +1,13 @@
 import React, { createContext, useContext, useState } from 'react'
 
 export const CounterContext = createContext()
-function UseContext() {
 
+function UseContext() {
     const [counter, setCounter] = useState(0)
     return (
         <div>
             Counter At Root: { counter}
-            <CounterContext.Provider value={{ counter, setCounter }}>
+            <CounterContext.Provider value={{counter, setCounter}}>
                 <Child1 />
             </CounterContext.Provider>
         </div>
@@ -27,6 +27,8 @@ function Child1() {
     )
 }
 function Child2() {
+
+
     return (
         <div>
             <h2>Child2</h2>

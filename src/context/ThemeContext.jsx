@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState } from 'react'
 
-const ThemeContext = createContext()
+export const ThemeContext = createContext()
 
 function ThemeContextProvider({ children }) {
     const [theme, setTheme]= useState("light")
@@ -8,6 +8,7 @@ function ThemeContextProvider({ children }) {
     const toggleTheme= () => {
         setTheme(theme === "dark" ? "light" : "dark")
     }
+
     return (
         <div>
             <ThemeContext.Provider value={{ theme, setTheme, toggleTheme}}>
@@ -21,5 +22,6 @@ export default ThemeContextProvider
 
 
 export const useTheme=()=>{
-    return useContext(ThemeContext)
+    const obj= useContext(ThemeContext)
+    return obj
 }

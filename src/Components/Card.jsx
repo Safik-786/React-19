@@ -2,7 +2,6 @@ import React from 'react'
 
 function Card({ title, description, email }) {
 
-
     const handleClick= (event, name )=>{
         console.log(event)
 
