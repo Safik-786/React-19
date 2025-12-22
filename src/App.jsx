@@ -69,6 +69,7 @@ import UseContext from './Components/Hooks/useContext';
 import { useTheme } from './context/ThemeContext';
 import CartComponent from './ReduxState/ReduxComponent/CartComponent';
 import CartNavbar from './ReduxState/ReduxComponent/CartNavbar';
+import UseState, { BookList } from './Components/Hooks/UseState';
 
 
 function App() {
@@ -76,7 +77,7 @@ function App() {
 
     <div className={`h-screen`}>
 
-      <CartNavbar/>
+      <CartNavbar />
       {/* <FaHome /> */}
       {/* <Card title="safik"
         description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque aperiam delectus pariatur accusamus architecto expedita id aspernatur rerum, atque accusantium facere qui dolorem minus nemo? Culpa possimus asperiores nulla aperiam eveniet? Ipsam."
@@ -89,7 +90,8 @@ function App() {
       <Card title="ajsdgh"
         description="Lorem ipsum ajfuq ajsvcuyg nulla aperiam eveniet? Ipsam."
         email="ytsafik2@gmail.com" /> */}
-        <CartComponent/>
+      {/* <UseState /> */}
+      <BookList />
     </div>
   )
 }
