@@ -10,12 +10,15 @@ const DependencyExample = () => {
 
   // 🧠 Effect that depends on `count` 
 
-  useEffect(() => {
-    console.log("🎯 useEffect ran because COUNT changed!");
-    return () => {
-      console.log("🧹 Cleanup before COUNT effect runs again or unmount");
-    };
-  }, [count]); // <-- only runs when count changes 
+  useEffect(
+    () => {
+      console.log("🎯 useEffect ran because COUNT changed!");
+      return () => {
+        console.log("🧹 Cleanup before COUNT effect runs again or unmount");
+      };
+    },
+
+    [count]); // <-- only runs when count changes 
 
   // 🧠 Effect that depends on `text` 
 
@@ -73,10 +76,10 @@ const DependencyExample = () => {
 function UseConditionalRendering() {
   const [display, setDisplay] = useState(false)
 
-  
+
   return (
     <div>
-      <button onClick={()=> setDisplay(!display)}>Toggle Component</button>
+      <button onClick={() => setDisplay(!display)}>Toggle Component</button>
       {
         display && (
           <DependencyExample />

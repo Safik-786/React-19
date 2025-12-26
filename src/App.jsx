@@ -8,7 +8,7 @@
 // import ProjectPage from './Pages/ProjectPage'
 // import SubTaskPage from './Pages/SubTaskPage'
 // import TaskDetailsPage from './Pages/TaskDetailsPage'
-// import UseSearchParams from './Pages/UseSearchParams'
+// import UseSearchParams from './Components/Routing/UseSearchParams'
 // import ProtectedRoute from './Guards/ProtectedRoute'
 // import Login from './Components/Shared/Login'
 // import HashNavigationPage from './Pages/HashNavigationPage'
@@ -25,6 +25,7 @@
 // import ReactMemo from './Components/Hooks/ReactMemo'
 // import UseCallBack from './Components/Hooks/UseCallback'
 // import SSG from './fetch/SSG'
+// import UseParams from './Components/Routing/UseParams'
 
 // function App() {
 //   return (
@@ -38,11 +39,12 @@
 //         <Route path='/settings' element={<AboutPage />} />
 //         <Route path='/login' element={<Login />} />
 //         <Route path='/ssg' element={<SSG />} />
+//         <Route path='/posts/:id' element={<UseParams />} />
 
 //         <Route path='/dashboard' element={
-//           <ProtectedRoute>
+//           // <ProtectedRoute>
 //             <Dashboard />
-//           </ProtectedRoute>
+//           // </ProtectedRoute>
 //         }>
 //           <Route index element={<ProjectPage />} />
 //           <Route path='tasks/:id' element={<TaskDetailsPage />} />
@@ -53,6 +55,7 @@
 //         </Route>
 //       </Routes>
 
+
 //     </div>
 //   )
 // }
@@ -61,7 +64,7 @@
 
 
 
-import React, { useContext } from 'react'
+import React, { lazy, Suspense, useContext } from 'react'
 // import img from './assets/img/img.jpg'
 import { FaHome } from "react-icons/fa";
 import Card from './Components/Card';
@@ -70,6 +73,13 @@ import { useTheme } from './context/ThemeContext';
 import CartComponent from './ReduxState/ReduxComponent/CartComponent';
 import CartNavbar from './ReduxState/ReduxComponent/CartNavbar';
 import UseState, { BookList } from './Components/Hooks/UseState';
+import UseQuery from './tanstack/UseQuery';
+import PricingCard from './Components/Cards/Card1';
+import ClientPagination from './Components/Optimization/ClientPagination';
+import ServerPagination from './Components/Optimization/Serverpagination';
+import DikshuDemo from './Components/DikshuDemo';
+
+const LazyComponent = lazy(() => import('./Components/Optimization/LazyLoading'))
 
 
 function App() {
@@ -77,7 +87,12 @@ function App() {
 
     <div className={`h-screen`}>
 
-      <CartNavbar />
+    {/* <ClientPagination/> */}
+    {/* <ServerPagination/> */}
+    <DikshuDemo/>
+      {/* <LazyComponent /> */}
+
+      {/* <CartNavbar /> */}
       {/* <FaHome /> */}
       {/* <Card title="safik"
         description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque aperiam delectus pariatur accusamus architecto expedita id aspernatur rerum, atque accusantium facere qui dolorem minus nemo? Culpa possimus asperiores nulla aperiam eveniet? Ipsam."
@@ -90,8 +105,11 @@ function App() {
       <Card title="ajsdgh"
         description="Lorem ipsum ajfuq ajsvcuyg nulla aperiam eveniet? Ipsam."
         email="ytsafik2@gmail.com" /> */}
+      {/* <CartComponent/> */}
+      {/* <UseQuery/> */}
+      {/* < PricingCard /> */}
       {/* <UseState /> */}
-      <BookList />
+      {/* <BookList /> */}
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function App() {
+function ClientPagination() {
   const [data, setData] = useState([]);          // store entire dataset (fetched once)
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;                        // showing 5 items per page
@@ -58,7 +58,7 @@ function App() {
         </button>
 
         {/* Page Numbers */}
-        {[...Array(totalPages).keys()].map((num) => {
+        {[...Array(totalPages).keys()].map((num, index) => {
           const page = num + 1;
           return (
             <button
@@ -89,4 +89,4 @@ function App() {
   );
 }
 
-export default App;
+export default ClientPagination;

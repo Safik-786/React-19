@@ -35,6 +35,7 @@ function Navbar() {
           <li><NavLink className={"p-2"} to="/services">Services</NavLink></li>
           <li><NavLink className={"p-2"} to="/settings">Settings</NavLink></li>
           <li><NavLink className={"p-2"} to="/ssg">SSG</NavLink></li>
+          <li><NavLink className={"p-2"} to="/posts/1">useParams</NavLink></li>
           {
 
           }
