@@ -16,6 +16,7 @@ function ClientPagination() {
     fetchData();
   }, []);
 
+
   // Calculate pagination indexes
   const lastItemIndex = currentPage * itemsPerPage;      // 1 → 5, 2 → 10, 3 → 15
   const firstItemIndex = lastItemIndex - itemsPerPage;   // 1 → 0, 2 → 5, 3 → 10

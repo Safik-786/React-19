@@ -113,7 +113,10 @@ function Otp({ otpLength = 6, initialotp = "123456" }) {
                 otpField.map((fieldValue, index) => {
                     return (
                         <input key={index}
-                            ref={(currentInput) => (inputRef.current[index] = currentInput)}
+                            ref={(currentInput) => {
+                                console.log(currentInput)   //this currentInput gives the current element 
+                                return(inputRef.current[index] = currentInput)
+                            }}
                             onKeyDown={(e) => handleKeyDown(e, index)}
                             onPaste={handlePaste}
                             type="text"

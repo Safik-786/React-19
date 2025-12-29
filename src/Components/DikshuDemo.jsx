@@ -12,8 +12,8 @@ function DikshuDemo() {
 
       <h2>{counter}</h2>
 
-      <button className='rounded border' onClick={handleClick}>increase</button>
-      <button className='rounded border' onClick={()=> setCounter(counter-1)}>increase</button>
+      <button className='rounded border cursor-pointer' onClick={handleClick}>increase</button>
+      <button className='rounded border cursor-pointer' onClick={()=> setCounter(counter-1)}>decrease</button>
       
     </div>
   )

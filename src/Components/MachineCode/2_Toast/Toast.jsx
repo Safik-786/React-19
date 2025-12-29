@@ -143,22 +143,16 @@ export default function ToastDemo() {
           {toasts.map((toast) => (
             <motion.div
               key={toast.id}
-
               /* Entry animation */
               initial={{ opacity: 0, x: 80 }}
-
               /* Visible state */
               animate={{ opacity: 1, x: 0 }}
-
               /* Exit animation */
               exit={{ opacity: 0, x: 80 }}
-
               transition={{ duration: 0.25 }}
-
               /* Pause timer on hover */
               onMouseEnter={() => pauseTimer(toast.id)}
               onMouseLeave={() => resumeTimer(toast.id)}
-
               className={`relative min-w-[260px] px-4 py-3 rounded shadow-lg text-white ${typeStyles[toast.type]}`}
             >
               {/* Toast content */}

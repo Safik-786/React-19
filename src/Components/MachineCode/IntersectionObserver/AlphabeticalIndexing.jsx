@@ -169,13 +169,12 @@ function AlphabeticalIndexing() {
             });
         }
     };
-
-
-
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
+
+                    console.log("entry= ", entry)
                     let cityName = entry.target.textContent;
 
                     // console.log("cityName= ", cityName)
@@ -216,9 +215,10 @@ function AlphabeticalIndexing() {
                     indianCities.map((city, index) => {
                         return (
                             <div
-
                                 ref={(reference) => itemRef.current.push(reference)}
-                                key={index} className='p-4 m-4 text-white border rounded shadow '> {city}</div>
+                                key={index} className='p-4 m-4 text-white border rounded shadow '>
+                                {city}
+                            </div>
                         )
                     })
                 }

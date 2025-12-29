@@ -66,32 +66,18 @@
 
 import React, { lazy, Suspense, useContext } from 'react'
 // import img from './assets/img/img.jpg'
-import { FaHome } from "react-icons/fa";
-import Card from './Components/Card';
-import UseContext from './Components/Hooks/useContext';
-import { useTheme } from './context/ThemeContext';
-import CartComponent from './ReduxState/ReduxComponent/CartComponent';
-import CartNavbar from './ReduxState/ReduxComponent/CartNavbar';
-import UseState, { BookList } from './Components/Hooks/UseState';
-import UseQuery from './tanstack/UseQuery';
-import PricingCard from './Components/Cards/Card1';
-import ClientPagination from './Components/Optimization/ClientPagination';
-import ServerPagination from './Components/Optimization/Serverpagination';
-import DikshuDemo from './Components/DikshuDemo';
-
-const LazyComponent = lazy(() => import('./Components/Optimization/LazyLoading'))
-
-
+import ApiCalls from './Pages/ApiCalls'
 function App() {
   return (
 
     <div className={`h-screen`}>
 
-    {/* <ClientPagination/> */}
-    {/* <ServerPagination/> */}
-    <DikshuDemo/>
+      {/* <ClientPagination/> */}
+      {/* <ServerPagination /> */}
+      {/* <FileExplorer/> */}
       {/* <LazyComponent /> */}
 
+<ApiCalls/>
       {/* <CartNavbar /> */}
       {/* <FaHome /> */}
       {/* <Card title="safik"
