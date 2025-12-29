@@ -66,7 +66,7 @@
 
 import React, { lazy, Suspense, useContext } from 'react'
 // import img from './assets/img/img.jpg'
-import ApiCalls from './Pages/ApiCalls'
+import ApiCalls from './ApiHandling/components/ApiCalls'
 function App() {
   return (
 
