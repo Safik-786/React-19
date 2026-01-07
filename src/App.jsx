@@ -67,37 +67,67 @@
 import React, { lazy, Suspense, useContext } from 'react'
 // import img from './assets/img/img.jpg'
 import ApiCalls from './ApiHandling/components/ApiCalls'
+import UseModal from './Modal/UseModal'
+import Demo, { DemoApp2 } from './DemoApp'
+import { UseConditionalRendering } from './Components/Hooks/UseEffect'
+import DemoApp from './DemoApp'
+import UseRef from './Components/Hooks/UseRef'
+import MultipleCheckBox from './Components/forms/MultipleCheckBox'
+import MultiSelectIdOnly from './Components/forms/MultipleDropDown'
+import UseContext from './Components/Hooks/useContext'
+import AllInputFieldsForm from './Components/reactHookForm/AllFieldHandling'
+import PasswordStrengthChecker from './Components/reactHookForm/Watch'
+import DisplayData from './ApiHandling/components/DisplayData'
+import CRUD from './ApiHandling/components/CRUD_MockApi'
+import ClassComponent from './Components/ClassComponent'
+
+
 function App() {
-  return (
 
-    <div className={`h-screen`}>
-
-      {/* <ClientPagination/> */}
-      {/* <ServerPagination /> */}
-      {/* <FileExplorer/> */}
-      {/* <LazyComponent /> */}
-
-<ApiCalls/>
-      {/* <CartNavbar /> */}
-      {/* <FaHome /> */}
-      {/* <Card title="safik"
-        description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque aperiam delectus pariatur accusamus architecto expedita id aspernatur rerum, atque accusantium facere qui dolorem minus nemo? Culpa possimus asperiores nulla aperiam eveniet? Ipsam."
-        email="ytsafik2@gmail.com" />
+  let wantoRender = true
 
 
-      <Card title="ajsdgh"
-        description="Lorem ipsum ajfuq ajsvcuyg nulla aperiam eveniet? Ipsam."
-        email="ytsafik2@gmail.com" />
-      <Card title="ajsdgh"
-        description="Lorem ipsum ajfuq ajsvcuyg nulla aperiam eveniet? Ipsam."
-        email="ytsafik2@gmail.com" /> */}
-      {/* <CartComponent/> */}
-      {/* <UseQuery/> */}
-      {/* < PricingCard /> */}
-      {/* <UseState /> */}
-      {/* <BookList /> */}
-    </div>
-  )
+  if (wantoRender) {
+    return (<>
+      <DemoApp />
+    </>)
+  } else {
+    return (
+
+      <div className={`h-screen`}>
+
+        {/* <ClientPagination/> */}
+        {/* <ServerPagination /> */}
+        {/* <FileExplorer/> */}
+        {/* <LazyComponent /> */}
+
+        {/* <ApiCalls /> */}
+
+        <DemoApp2 />
+
+        {/* <Demo/> */}
+        {/* <CartNavbar /> */}
+        {/* <FaHome /> */}
+        {/* <Card title="safik"
+          description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque aperiam delectus pariatur accusamus architecto expedita id aspernatur rerum, atque accusantium facere qui dolorem minus nemo? Culpa possimus asperiores nulla aperiam eveniet? Ipsam."
+          email="ytsafik2@gmail.com" />
+  
+  
+        <Card title="ajsdgh"
+          description="Lorem ipsum ajfuq ajsvcuyg nulla aperiam eveniet? Ipsam."
+          email="ytsafik2@gmail.com" />
+        <Card title="ajsdgh"
+          description="Lorem ipsum ajfuq ajsvcuyg nulla aperiam eveniet? Ipsam."
+          email="ytsafik2@gmail.com" /> */}
+        {/* <CartComponent/> */}
+        {/* <UseQuery/> */}
+        {/* < PricingCard /> */}
+        {/* <UseState /> */}
+        {/* <BookList /> */}
+      </div>
+    )
+  }
+
 }
 
 export default App

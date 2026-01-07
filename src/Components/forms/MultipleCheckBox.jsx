@@ -4,6 +4,8 @@ function MultipleCheckBox() {
 
     let [hobbies, setHobbies]= useState([])
 
+    console.log(hobbies)
+
     let handleCheckbox= (e)=>{
         const {checked, value}= e.target
         if(checked){
@@ -39,7 +41,7 @@ function MultipleCheckBox() {
                 </div>
 
 
-                <input type="submit" value={"Submit"} name="" id="" />
+                <input type="submit"className='border px-2 rounded bg-green-50 border border-green-200 text-green-700 cursor-pointer  shadow' value={"Submit"} name="" id="" />
             </form>
         </div>
     )

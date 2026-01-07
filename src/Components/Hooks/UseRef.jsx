@@ -5,17 +5,18 @@ function UseRef() {
     const containerElement = useRef(0)
     const inputRef = useRef(null);
 
-    const handleBtnClick=()=>{
-        inputRef.current.style.color="green"
-        inputRef.current.style.backgroundColor="red"
+    const handleBtnClick = () => {
+        inputRef.current.style.color = "white"
+        containerElement.current.style.backgroundColor = "red"
     }
-    const containerStyle= {backgroundColor:"red", color:"blue", }
+    const containerStyle = { backgroundColor: "red", color: "blue", }
     console.log(inputRef)
-    return (
-        <div ref={containerElement} style={{...containerStyle, fontFamily:"cursive"}}>
-            Hello World
-            <input ref={inputRef} placeholder="Type here..." />
 
+
+    return (
+        <div ref={containerElement} >
+            <input className='border' ref={inputRef} placeholder="Type here..." />
+            <br /> <br />
             <button onClick={handleBtnClick}>Change Color</button>
         </div>
     )

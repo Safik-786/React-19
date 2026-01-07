@@ -17,7 +17,6 @@ const DependencyExample = () => {
         console.log("🧹 Cleanup before COUNT effect runs again or unmount");
       };
     },
-
     [count]); // <-- only runs when count changes 
 
   // 🧠 Effect that depends on `text` 
@@ -90,6 +89,6 @@ function UseConditionalRendering() {
   )
 }
 
-export default UseConditionalRendering
+export  {UseConditionalRendering}
 
 

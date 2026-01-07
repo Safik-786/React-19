@@ -18,9 +18,7 @@ function AllInputFieldsForm() {
             >
 
                 <h2 className="text-2xl font-semibold text-center mb-2">
-
                     React Hook Form - All Input Types
-
                 </h2>
                 {/* TEXT INPUT */}
                 <label className="flex flex-col">

@@ -28,7 +28,7 @@ function ApiCalls() {
             //         console.log("error during the  api call", error)
             //         setError(error)
             //     })
-            const response = await fetch(`https://6901f2bfb28b24affe460ef.mockapi.io/users`)
+            const response = await fetch(`https://6901f2bfb208b24affe460ef.mockapi.io/users`)
             const data = await response.json()
             console.log(data)
             setData(data)
@@ -70,7 +70,7 @@ function ApiCalls() {
             </div>
             <div className='grid grid-cols-2 md:grid-cols-4 gap-5'>
                 {
-                    data && data?.map((item => {
+                    data ? data?.map((item => {
                         return (
                             <div key={item.id} className='shadow rounded' >
                                 <h3>{item.id}</h3>
@@ -80,6 +80,8 @@ function ApiCalls() {
                             </div>
                         )
                     }))
+                    :
+                    <h2>Data not Found</h2>
                 }
             </div>
         </div>

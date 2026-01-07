@@ -1,27 +1,3 @@
-let name= "wjefguwifhgufyu"
+let arr= [1, 2, 3, 4, 5]
 
-
-
-// let name= {
-//   current: "mwbvjwegfwej"
-// }
-
-
-
-
-const useRef= (value)=>{
-  let obj={}
-  obj["current"]= value
-  return obj
-}
-
-
-const objref= useRef(2)
-
-console.log(objref)
-
-
-console.log(objref.current)
-
-
-
+let[a, s, d, ...rest ]= arr 

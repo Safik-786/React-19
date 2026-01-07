@@ -41,7 +41,7 @@ function Form({ item }) {
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-100 p-6">
+        <div className="h-full flex items-center justify-center bg-gray-100 p-6">
             <form onSubmit={handleSubmit} className="w-full max-w-md bg-white shadow-lg rounded-2xl p-6">
                 <h2 className="text-2xl font-semibold mb-4 text-gray-800">
                     User Form
