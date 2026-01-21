@@ -1,18 +1,33 @@
 import React from 'react'
 
-
-let number = 20
 function DemoApp() {
-  let a = 20;
-  let b = 30;
-  let sum = a + b
+  let name = "adam"
 
-  return (
-    <div>
-      Number {number}
-      <h2>Sum= {sum} </h2>
-    </div>
-  )
+  let authenticate = true
+
+  if (authenticate) {
+    return (
+      <>
+        <Child name={name} age={20} />
+      </>
+    )
+  } else {
+    return <h2>Please Login</h2>
+  }
+
+
+  // return (
+  //   <div className='px-20'>
+
+  //     <h2>My Name is {name}</h2>
+  //     {1 + 2}
+  //     {
+  //       authenticate ? <Child /> : <h2>Please Login</h2>
+  //     }
+
+
+  //   </div>
+  // )
 }
 
 export default DemoApp
@@ -20,12 +35,19 @@ export default DemoApp
 
 
 
-function DemoApp2() {
+function Child({ name, age }) {
   return (
     <div>
-      This is demoapp
+
+      <h2>
+        {
+          name
+        }
+      </h2>
+      <p>{age}</p>
+      <br />
+      this is child component
     </div>
   )
 }
 
-export { DemoApp2 }

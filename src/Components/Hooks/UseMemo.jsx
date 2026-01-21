@@ -22,18 +22,18 @@ function UseMemo() {
 
     
     //   SOLUTION
-    // const sumUpto1000=  useMemo(()=>{
-    //   return findNthSum(1000)
-    // }, [])
-    // const sumUpto10000=  useMemo(()=>{
-    //   return findNthSum(10000)
-    // }, [])
+    const sumUpto1000=  useMemo(()=>{
+      return findNthSum(1000)
+    }, [])
+    const sumUpto10000=  useMemo(()=>{
+      return findNthSum(10000)
+    }, [count])
 
 
     // OR
-    const [sumUpto1000, sumUpto10000]= useMemo(()=>{
-      return [findNthSum(1000), findNthSum(10000)]
-    },[])
+    // const [sumUpto1000, sumUpto10000]= useMemo(()=>{
+    //   return [findNthSum(1000), findNthSum(10000)]
+    // },[])
 
 
   return (

@@ -13,14 +13,14 @@ function ReactMemo() {
             <h5>Hello from React Memo</h5>
             <button className="border" onClick={ ()=> setName("Rahul")}>ChangeName</button>
             {/* <ChildComp  /> */}
-            <MemoizedChildComp name={name}/>
+            <MemoizedChildComp name={name} />
         </div>
     )
 }
 export default ReactMemo
 
 
-function ChildComp({name}) {
+function ChildComp({name="abc"}) {
     return (
         <div style={{border:"1px dotted red", paddingLeft:'50px'}}>
             <h2>Name: {name}</h2>

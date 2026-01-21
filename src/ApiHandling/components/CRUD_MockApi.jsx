@@ -44,7 +44,7 @@ export default function CRUD() {
     if (!window.confirm("Are you sure you want to delete this user?")) {
       return;
     }
-    
+
     try {
       await axiosInstancs.delete(`/users/${id}`);
       fetchUsers();
@@ -96,7 +96,7 @@ export default function CRUD() {
   return (
     <div className="p-4">
       <div className='p-5 shadow mb-6 rounded text-end'>
-        <button 
+        <button
           onClick={() => setShowForm(true)}
           className='px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors'
         >
@@ -112,13 +112,13 @@ export default function CRUD() {
               <p className="text-gray-500 text-sm">ID: {user.id}</p>
               <p className="text-gray-500 text-sm">Created: {new Date(user.createdAt).toLocaleDateString()}</p>
               <div className="mt-3 space-x-2">
-                <button 
+                <button
                   onClick={() => handleEdit(user)}
                   className='px-3 py-1 bg-blue-100 text-blue-600 rounded hover:bg-blue-200'
                 >
                   Edit
                 </button>
-                <button 
+                <button
                   onClick={() => deleteUser(user.id)}
                   className='px-3 py-1 bg-red-100 text-red-600 rounded hover:bg-red-200'
                 >
@@ -128,10 +128,10 @@ export default function CRUD() {
             </div>
             {user.avatar && (
               <div>
-                <img 
-                  src={user.avatar} 
-                  height={80} 
-                  width={80} 
+                <img
+                  src={user.avatar}
+                  height={80}
+                  width={80}
                   alt={user.name}
                   className="rounded-full"
                 />
@@ -148,13 +148,13 @@ export default function CRUD() {
               <h2 className='text-xl font-semibold text-blue-600 text-center mb-4'>
                 {isEditing ? 'Edit User' : 'Add New User'}
               </h2>
-              
+
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                   Name
                 </label>
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   id="name"
                   name="name"
                   value={formData.name}
@@ -166,13 +166,13 @@ export default function CRUD() {
               </div>
 
               <div className="flex gap-3 pt-4">
-                <button 
+                <button
                   type="submit"
                   className="flex-1 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-colors"
                 >
                   {isEditing ? 'Update' : 'Create'}
                 </button>
-                <button 
+                <button
                   type="button"
                   onClick={closeForm}
                   className="flex-1 bg-gray-200 text-gray-800 py-2 rounded-lg hover:bg-gray-300 transition-colors"
