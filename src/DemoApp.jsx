@@ -1,53 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { ThemeContext } from './context/ThemeContext'
 
 function DemoApp() {
-  let name = "adam"
-
-  let authenticate = true
-
-  if (authenticate) {
-    return (
-      <>
-        <Child name={name} age={20} />
-      </>
-    )
-  } else {
-    return <h2>Please Login</h2>
-  }
-
-
-  // return (
-  //   <div className='px-20'>
-
-  //     <h2>My Name is {name}</h2>
-  //     {1 + 2}
-  //     {
-  //       authenticate ? <Child /> : <h2>Please Login</h2>
-  //     }
-
-
-  //   </div>
-  // )
-}
-
-export default DemoApp
-
-
-
-
-function Child({ name, age }) {
+  const { theme, setTheme, toggleTheme } = useContext(ThemeContext)
   return (
     <div>
 
-      <h2>
-        {
-          name
-        }
-      </h2>
-      <p>{age}</p>
-      <br />
-      this is child component
+      <div className={`h-100 shadow w-100 ${(theme === "dark") ? "bg-purple-950" : "bg-green-50"} `}>
+        Hello
+      </div>
+
+      <button className='shadow cursor-pointer px-4 py-2 bg-green-50' onClick={toggleTheme}>Toggle Theme</button>
+
     </div>
   )
 }
 
+export default DemoApp

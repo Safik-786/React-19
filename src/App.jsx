@@ -63,19 +63,32 @@
 // export default App
 
 
-import React, { Component } from 'react'
+import React, { Component, lazy, Suspense } from 'react'
 import DemoApp from './DemoApp'
 import AllPropsExample from './Pages/Props'
 import RtkCounter from './rtk/rtkComponent/RtkCounter'
 import CartApp from './rtk/rtkComponent/CartApp'
+import { UseConditionalRendering } from './Components/Hooks/UseEffect'
+import CountComponent from './ReduxState/ReduxComponent/CountComponent'
+import CRUDTanstack from './tanstack/crud/CRUDTanstack'
+import UseModal from './Modal/UseModal'
+import UseContext from './Components/Hooks/useContext'
+import AllInputFieldsForm from './Components/reactHookForm/AllFieldHandling'
 // import CountComponent from './ReduxState/ReduxComponent/CountComponent'
+
+const LazyComponent = lazy(() => import('./Components/Optimization/LazyLoading'))
 
 function App() {
   return (
-    <>
-      {/* <CountComponent/> */}
-      <CartApp />
-    </>
+    <div className='px-10'>
+      {/* <UseModal /> */}
+
+      {/* <Suspense fallback={"Loader...."}>
+        <LazyComponent/>
+      </Suspense> */}
+      <AllInputFieldsForm />
+      {/* <UseConditionalRendering /> */}
+    </div>
   )
 }
 

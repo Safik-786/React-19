@@ -10,7 +10,7 @@ function UseContext() {
     }
     return (
         <div>
-            Counter At Root: { counter}
+            Counter At Parent: { counter}
             <CounterContext.Provider value={{counter, setCounter, hello}}>
                 <Child1 />
             </CounterContext.Provider>

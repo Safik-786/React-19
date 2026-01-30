@@ -25,13 +25,13 @@ function CountComponent() {
   console.log("wekjfbehjwgfj3g")
 
   return (
-    <div>
+    <div className='ps-30'>
 
       <h2>Counter: {counterState.count}</h2>
 
 
-      <button className='shadow p-1 m-2 rounded' onClick={() => dispatch(increament())}>Increament</button>
-      <button className='shadow p-1 m-2 rounded' onClick={() => dispatch(decreament())}>Decreament</button>
+      <button className='shadow p-1 m-2 cursor-pointer rounded' onClick={() => dispatch(increament())}>Increament</button>
+      <button className='shadow p-1 m-2 cursor-pointer rounded' onClick={() => dispatch(decreament())}>Decreament</button>
 
 
       <form action="" onSubmit={handleSubmit}>

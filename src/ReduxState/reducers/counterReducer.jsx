@@ -28,7 +28,7 @@ const counterReducer= (state= initialData, action)=>{
         }
     }
     else if (action.type === actionKey.reset) {
-        return {count: 0}
+        return initialData
     }
     else{
         return state

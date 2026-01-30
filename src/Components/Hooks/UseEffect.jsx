@@ -73,7 +73,7 @@ const DependencyExample = () => {
 
 
 function UseConditionalRendering() {
-  const [display, setDisplay] = useState(false)
+  const [display, setDisplay] = useState(true)
 
 
   return (

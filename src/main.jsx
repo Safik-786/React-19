@@ -9,10 +9,8 @@ import { Provider } from 'react-redux'
 import ThemeContextProvider from './context/ThemeContext.jsx'
 
 import App from "./App.jsx"
-import { store } from './rtk/store.js'
-
-
-
+import { store } from './ReduxState/store.jsx'
+// import { store } from './rtk/store.js'
 
 const client = new QueryClient({
   defaultOptions: {
@@ -30,7 +28,6 @@ createRoot(document.getElementById('root')).render(
         {/* <Demo /> */}
         <ThemeContextProvider>
           <App />
-
         </ThemeContextProvider>
         {/* <ReduxComponent /> */}
       </Provider>

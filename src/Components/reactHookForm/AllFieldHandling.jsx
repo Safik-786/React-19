@@ -94,7 +94,6 @@ function AllInputFieldsForm() {
 
 
                 {/* CHECKBOX */}
-
                 <label className="flex gap-2 items-center">
                     <input {...register("subscribe")} type="checkbox" />
                     Subscribe to newsletter
