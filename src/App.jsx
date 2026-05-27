@@ -67,6 +67,7 @@
 import React, { lazy, Suspense, useContext } from 'react'
 // import img from './assets/img/img.jpg'
 import ApiCalls from './Pages/ApiCalls'
+import HandleSingleField from './Components/forms/HandleSingleField'
 function App() {
   return (
 
@@ -76,8 +77,9 @@ function App() {
       {/* <ServerPagination /> */}
       {/* <FileExplorer/> */}
       {/* <LazyComponent /> */}
+      <HandleSingleField/>
 
-<ApiCalls/>
+      {/* <ApiCalls/> */}
       {/* <CartNavbar /> */}
       {/* <FaHome /> */}
       {/* <Card title="safik"
