@@ -23,10 +23,8 @@ function Form({ item }) {
             e.preventDefault()
             console.log("Form Data Submitted:", formData);
             if (isEdit) {
-
             }
             else {
-
                 const response = await axiosInstancs.post('/users', formData)
                 if (response.status === 201) {
                     setLoader(false)

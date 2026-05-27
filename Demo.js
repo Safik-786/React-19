@@ -1,27 +1,28 @@
-let name= "wjefguwifhgufyu"
+console.log("Start Executing")
 
 
+const p1 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        reject("Promise 1 rejected");
+    }, 2000);
+});
+console.log(p1)
 
-// let name= {
-//   current: "mwbvjwegfwej"
-// }
+// p1.then((message) => {
+//     console.log(message);
+// }).catch((error) => {
+//     console.error(error);
+// });
 
 
-
-
-const useRef= (value)=>{
-  let obj={}
-  obj["current"]= value
-  return obj
+const asyncFunc= async () =>{
+    try {
+        const result= await p1
+        console.log(result)
+        
+    } catch (error) {
+        console.log(error)
+    }
 }
 
-
-const objref= useRef(2)
-
-console.log(objref)
-
-
-console.log(objref.current)
-
-
-
+asyncFunc()

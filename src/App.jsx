@@ -1,105 +1,87 @@
-// import React, { useState } from 'react'
-// import Navbar from './Components/Shared/Navbar'
-// import { Route, Routes } from 'react-router-dom'
-// import HomePage from './Pages/HomePage'
-// import AboutPage, { ServicePage } from './Pages/AboutPage'
-// import Dashboard from './Pages/Dashboard'
-// import TaskPage from './Pages/TaskPage'
-// import ProjectPage from './Pages/ProjectPage'
-// import SubTaskPage from './Pages/SubTaskPage'
-// import TaskDetailsPage from './Pages/TaskDetailsPage'
-// import UseSearchParams from './Components/Routing/UseSearchParams'
-// import ProtectedRoute from './Guards/ProtectedRoute'
-// import Login from './Components/Shared/Login'
-// import HashNavigationPage from './Pages/HashNavigationPage'
-// import ApiCalls from './Pages/ApiCalls'
-// import FetchData from './Components/FetchData'
-// import { AllPropsExample } from './Pages/Props'
-// import ListRendering from './Pages/ListRendering'
-// import DependencyExample from './Components/Hooks/UseEffect'
-// import Crud from './ApiHandling/components'
-// import VintagePastelHomepage from './4Ever/Home'
-// import VintagePastelHomepage2 from './4Ever/Home2'
-// import ProductionEcommerce from './4Ever/Home3'
-// import UseRef from './Components/Hooks/UseRef'
-// import ReactMemo from './Components/Hooks/ReactMemo'
-// import UseCallBack from './Components/Hooks/UseCallback'
-// import SSG from './fetch/SSG'
-// import UseParams from './Components/Routing/UseParams'
+import React, { lazy, Suspense } from 'react'
+import Hello from './Hello'
+import { Route, Routes } from 'react-router-dom'
+import HomePage from './Components/Home'
+import AboutPage, { ServicePage } from './Pages/AboutPage'
+import Navbar from './Components/Shared/Navbar'
+import Props from './Pages/Props'
+import UseConditionalRendering, { DependencyExample } from './Components/Hooks/UseEffect'
+import UseRef from './Components/Hooks/UseRef'
+import Dashboard from './Pages/Dashboard'
+import ProjectPage from './Components/ProjectPage'
+import ProjectDetails from './Components/ProjectDetails'
+import AllInputFieldsFormReactHookForm from './Components/reactHookForm/AllFieldHandling'
+import CRUD_Fetch from './ApiHandling/components/CRUF_Fetch'
+import ReactMemo from './Components/Hooks/ReactMemo'
+import UseMemo from './Components/Hooks/UseMemo'
+import CountComponent from './ReduxState/ReduxComponent/CountComponent'
+import CartAppRtk from './rtk/rtkComponent/CartAppRtk'
+import ClientPagination from './Components/Optimization/ClientPagination'
 
-// function App() {
-//   return (
-//     <div >
-//       {/* <Demo/> */}
-//       <Navbar />
-//       <Routes>
-//         <Route path='/home' element={<HomePage />} />
-//         <Route path='/about' element={<AboutPage />} />
-//         {/* <Route path='/services' element={<ServicePage />} /> */}
-//         <Route path='/settings' element={<AboutPage />} />
-//         <Route path='/login' element={<Login />} />
-//         <Route path='/ssg' element={<SSG />} />
-//         <Route path='/posts/:id' element={<UseParams />} />
+import DemoApp from "./DemoApp"
+// import CRUD from './Components/CRUD_MockApi'
 
-//         <Route path='/dashboard' element={
-//           // <ProtectedRoute>
-//             <Dashboard />
-//           // </ProtectedRoute>
-//         }>
-//           <Route index element={<ProjectPage />} />
-//           <Route path='tasks/:id' element={<TaskDetailsPage />} />
-//           <Route path='tasks' element={<TaskPage />} />
-//           <Route path='subtasks' element={<SubTaskPage />} />
-//           <Route path='searchparams' element={<UseSearchParams />} />
-//           <Route path='hashnavigation' element={<HashNavigationPage />} />
-//         </Route>
-//       </Routes>
+const HeavyComponent = lazy(() => import('./Components/Optimization/LazyLoading'))
 
-
-//     </div>
-//   )
-// }
-
-// export default App
-
-
-
-import React, { lazy, Suspense, useContext } from 'react'
-// import img from './assets/img/img.jpg'
-import ApiCalls from './Pages/ApiCalls'
-import HandleSingleField from './Components/forms/HandleSingleField'
 function App() {
+
+  const [showComponent, setShowComponent] = React.useState(false)
   return (
+    <div>
+      {/* <Navbar />
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/about' element={<AboutPage />} />
+        <Route path='/services' element={<ServicePage />} />
+        <Route path="/dashboard" element={<Dashboard />}>
+          <Route index element={<HomePage />} />
+          <Route path="projects" element={<ProjectPage />} />
+          <Route path="projects/:slug" element={<ProjectDetails />} />
+        </Route>
+      </Routes> */}
+      {/* <Props /> */}
 
-    <div className={`h-screen`}>
+      {/* <CRUD_Fetch /> */}
 
-      {/* <ClientPagination/> */}
-      {/* <ServerPagination /> */}
-      {/* <FileExplorer/> */}
-      {/* <LazyComponent /> */}
-      <HandleSingleField/>
+      <Suspense fallback={<div>Loading...</div>}>
+        <HeavyComponent />
+      </Suspense>
 
-      {/* <ApiCalls/> */}
-      {/* <CartNavbar /> */}
-      {/* <FaHome /> */}
-      {/* <Card title="safik"
-        description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque aperiam delectus pariatur accusamus architecto expedita id aspernatur rerum, atque accusantium facere qui dolorem minus nemo? Culpa possimus asperiores nulla aperiam eveniet? Ipsam."
-        email="ytsafik2@gmail.com" />
+      <ReactMemo />
 
-
-      <Card title="ajsdgh"
-        description="Lorem ipsum ajfuq ajsvcuyg nulla aperiam eveniet? Ipsam."
-        email="ytsafik2@gmail.com" />
-      <Card title="ajsdgh"
-        description="Lorem ipsum ajfuq ajsvcuyg nulla aperiam eveniet? Ipsam."
-        email="ytsafik2@gmail.com" /> */}
-      {/* <CartComponent/> */}
-      {/* <UseQuery/> */}
-      {/* < PricingCard /> */}
-      {/* <UseState /> */}
-      {/* <BookList /> */}
     </div>
   )
 }
 
+
 export default App
+
+
+
+
+export function App2() {
+  return (
+    <div>
+
+    </div>
+  )
+}
+export function App3() {
+  return (
+    <div>
+
+    </div>
+  )
+}
+export function App4() {
+  return (
+    <div>
+
+    </div>
+  )
+}
+
+// export { App2, App3, App4 }
+
+
+

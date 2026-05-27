@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { set } from "react-hook-form";
 
 
 
@@ -13,11 +14,12 @@ const DependencyExample = () => {
   useEffect(
     () => {
       console.log("🎯 useEffect ran because COUNT changed!");
+      
+
       return () => {
         console.log("🧹 Cleanup before COUNT effect runs again or unmount");
       };
     },
-
     [count]); // <-- only runs when count changes 
 
   // 🧠 Effect that depends on `text` 
@@ -33,6 +35,7 @@ const DependencyExample = () => {
 
   useEffect(() => {
     console.log("this is for the empty dependency []")
+    
   }, [])
 
   // 🧠 Effect with multiple dependencies 
@@ -40,6 +43,18 @@ const DependencyExample = () => {
   useEffect(() => {
     console.log("🚀 useEffect ran because COUNT or TEXT changed!");
   }, [count, text]);
+
+
+  // useEffect(()=>{
+  //   const timer = setTimeout(()=>{
+  //     console.log("This is a delayed effect after 3 seconds")
+  //     setCount((prevCount)=> prevCount +1)
+  //   }, 1000)
+
+  //   return ()=>{
+  //     clearTimeout(timer)
+  //   }
+  // }, [count])
 
 
   useEffect(() => {
@@ -63,14 +78,12 @@ const DependencyExample = () => {
         Toggle Text
 
       </button>
-
     </div>
 
   );
 
 };
-
-
+export { DependencyExample };
 
 
 function UseConditionalRendering() {

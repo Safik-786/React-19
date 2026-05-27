@@ -5,15 +5,14 @@ function Dashboard() {
 
     const navigate= useNavigate()
     return (
-        <div className='h-[calc(100vh-64px)]  flex  text-gray-800'>
-
+        <div className='h-[calc(100vh-72px)]  flex  text-gray-800'>
             <aside className='h-full w-[15%] bg-blue-100 shadow'>
                 <ul className=' text-sm flex flex-col '>
                     <li >
-                        <NavLink className=' p-2 inline-block w-full' to={"/dashboard"} end>Projects</NavLink>
+                        <NavLink className=' p-2 inline-block w-full' to={"/dashboard"} end>Home</NavLink>
                     </li>
                     <li >
-                        <NavLink className=' p-2 inline-block w-full' to={"/dashboard/tasks"}>Tasks</NavLink>
+                        <NavLink className=' p-2 inline-block w-full' to={"/dashboard/projects"}>Projects</NavLink>
                     </li>
                     <li >
                         <NavLink className=' p-2 inline-block w-full' to={"/dashboard/subtasks"}>Subtasks</NavLink>

@@ -147,8 +147,6 @@ const alphabet = [
 function AlphabeticalIndexing() {
 
     const [activeLetter, setActiveLetter] = useState("A")
-
-
     console.log(activeLetter)
 
     const itemRef = useRef([])

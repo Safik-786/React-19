@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Redux Concept - Vanilla JS</title>
+</head>
+<body>
+
+  <h1 id="count">0</h1>
+
+  <button onclick="dispatch({ type: 'INCREMENT' })">+</button>
+  <button onclick="dispatch({ type: 'DECREMENT' })">-</button>
+
+  <script>
+    // STATE
+    let state = 0;
+
+    // REDUCER
+    function counterReducer(state, action) {
+      if (action.type === "INCREMENT") {
+        return state + 1;
+      }
+      if (action.type === "DECREMENT") {
+        return state - 1;
+      }
+      return state;
+    }
+
+    // DISPATCH
+    function dispatch(action) {
+      state = counterReducer(state, action);
+      render();
+    }
+
+    // UI UPDATE
+    function render() {
+      document.getElementById("count").innerText = state;
+    }
+
+    // Initial render
+    render();
+  </script>
+
+</body>
+</html>

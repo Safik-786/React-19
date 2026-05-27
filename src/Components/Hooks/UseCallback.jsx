@@ -1,43 +1,71 @@
-import React, { useState, useCallback, memo } from 'react';
+// import React, { useState } from "react";
 
-export default function UseCallBack() {
-    const [count, setCount] = useState(0);
+// const Child = React.memo(({ onClick }) => {
+//   console.log("Child re-rendered");
+//   return <button onClick={onClick}>Click Me</button>;
+// });
 
-    // This function will be re-created on every render
-    const hanldeIncrement = () => {
-        setCount(count + 1);
-    };
+// export default function UseCallback() {
+//   const [count, setCount] = useState(0);
 
-    // Solution
-    const memoizedHanldeIncrement= useCallback(()=>{
-        // setCount(count+1)
-        setCount((prev)=> prev+1)
-    },[])
+//   const handleClick = () => {
+//     console.log("Button clicked");
+//   };
 
-    // This function is memoized and will only be re-created when 'count' changes
-    const memoizedIncrement = useCallback(() => {
-        setCount(count + 1);
-    }, [count]);
+//   return (
+//     <div>
+//       <p>Count: {count}</p>
+//       <button onClick={() => setCount(count + 1)}>Increase</button>
+//       <Child onClick={handleClick} />
+//     </div>
+//   );
+// }
 
-    return (
-        <div>
-            <p>Count: {count}</p>
-            <button onClick={hanldeIncrement}>Increment (Parent)</button> <br /><br />
-            <button onClick={memoizedIncrement}>Increment (memoized)</button><br /><br />
 
-            {/* <ChildComponent onIncrement={hanldeIncrement} /> */}
-            {/* <MemoizedChild onIncrement={hanldeIncrement}/> */}
-            {/* <ChildComponent onIncrement={memoizedHanldeIncrement} /> */}
+// 🔎 What happens now?
 
-        </div>
-    );
-}
+// Clicking Increase updates count
 
-// React.memo prevents unnecessary re-renders if props haven't changed
-const ChildComponent = React.memo(({ onIncrement }) => {
-    console.log('ChildComponent rendered');
-    return <button onClick={onIncrement}>Increment from Child</button>;
+// Parent re-renders
+
+// handleClick is NOT recreated
+
+// Child receives the same function reference
+
+// Child does NOT re-render ✅
+
+
+
+
+import React, { useState, useCallback } from "react";
+
+const Child = React.memo(({ onClick }) => {
+  console.log("Child re-rendered");
+  return <button onClick={onClick}>Click Me</button>;
 });
 
+export default function Parent() {
+  const [count, setCount] = useState(0);
 
-const MemoizedChild= memo(ChildComponent)
+  const handleClick = useCallback(() => {
+    console.log("Button clicked");
+  }, []); // no dependencies
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increase</button>
+      <Child onClick={handleClick} />
+    </div>
+  );
+}
+
+
+
+
+
+
+
+
+
+

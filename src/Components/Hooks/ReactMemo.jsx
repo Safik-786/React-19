@@ -5,14 +5,17 @@ function ReactMemo() {
     const [count, setCount] = useState(0)
     const [name, setName] = useState("")
 
+    const [obj, setObj] = useState({ name: "safik" })
+
     return (
         <div className="px-20">
             <p>{count}</p>
             <button className="border" onClick={() => (setCount(count + 1))}>Increament</button>
-
+            <button className="border" onClick={() => setObj({ ...obj, name: "safik" })}>Change Object</button>
             <h5>Hello from React Memo</h5>
-            <button className="border" onClick={ ()=> setName("Rahul")}>ChangeName</button>
-            {/* <ChildComp  /> */}
+            <button className="border" onClick={() => setName("Rahul")}>ChangeName</button>
+            {/* <ChildComp name={name} /> */}
+            {/* <MemoizedChildComp obj={obj}/> */}
             <MemoizedChildComp name={name}/>
         </div>
     )
@@ -20,9 +23,10 @@ function ReactMemo() {
 export default ReactMemo
 
 
-function ChildComp({name}) {
+function ChildComp({ name }) {
     return (
-        <div style={{border:"1px dotted red", paddingLeft:'50px'}}>
+        <div style={{ border: "1px dotted red", paddingLeft: '50px' }}>
+            {/* Object: {obj.name} */}
             <h2>Name: {name}</h2>
             {/* <p>count: {count}</p> */}
             {console.log("I am child Component, i rendered unnecessarily...")}
@@ -32,7 +36,7 @@ function ChildComp({name}) {
 }
 
 
-const MemoizedChildComp= memo(ChildComp)
+const MemoizedChildComp = memo(ChildComp)
 // const MemoizedChildComp= memo(ChildComp, (prevProps, nextProps ) => prevProps === nextProps)
 
 

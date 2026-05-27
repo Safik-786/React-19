@@ -69,6 +69,8 @@ function MultipleRadio() {
 
 <br /><br />
 
+{gender}
+
             <button type="submit">Submit</button>
         </form>
 

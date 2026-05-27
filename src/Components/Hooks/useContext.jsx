@@ -4,19 +4,20 @@ export const CounterContext = createContext()
 
 function UseContext() {
     const [counter, setCounter] = useState(0)
+
+    let dkfgwerf=()=>{
+        console.log("dfgdfg")
+    }
     return (
         <div>
             Counter At Root: { counter}
-            <CounterContext.Provider value={{counter, setCounter}}>
+            <CounterContext.Provider value={{counter, setCounter, dkfgwerf}}>
                 <Child1 />
             </CounterContext.Provider>
         </div>
     )
 }
-
 export default UseContext
-
-
 
 function Child1() {
     return (
@@ -27,7 +28,7 @@ function Child1() {
     )
 }
 function Child2() {
-
+      let {counter, setCounter, dkfgwerf} = useContext(CounterContext)
 
     return (
         <div>
@@ -37,6 +38,8 @@ function Child2() {
     )
 }
 function Child3() {
+
+    const{}= useContext(CounterContext)
     return (
         <div>
             <h2>Child3</h2>
@@ -49,7 +52,10 @@ function Child4() {
     return (
         <div>
             <h2>Child4</h2>
-            <button onClick={()=> setCounter(counter+1)} className='shadow rounded cursor-pointer px-2 py-1 bg-white'>Increament</button>
+            <button className="shadow rounded border cursor-pointer px-2 py-1 bg-green-500" onClick={()=> setCounter(counter+1)}>Increament</button>
         </div>
     )
 }
+
+
+

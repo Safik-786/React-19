@@ -1,38 +1,76 @@
 import React, { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 function ServerPagination() {
   const [data, setData] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1);
+  const [totalCount, setTotalCount] = useState(0);
+  const [loading, setLoading] = useState(false);
 
-  const itemsPerPage = 5;
+  const itemsPerPage = 10;
+
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  // Get current page from URL (?page=2)
+  const currentPage = Number(searchParams.get("page")) || 1;
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
+
       const res = await fetch(
-        `https://6901f2bfb208b24affe460ef.mockapi.io/users?page=${currentPage}&limit=${itemsPerPage}`
+        `https://jsonplaceholder.typicode.com/comments?_page=${currentPage}&_limit=${itemsPerPage}`
       );
 
-      const totalCount = res.headers.get("x-total-count"); // total records
-      setTotalPages(Math.ceil(totalCount / itemsPerPage));
-
       const json = await res.json();
-      setData(json);
+
+      // Total count comes from headers
+      const total = res.headers.get("x-total-count");
+
+      setData(...data, json);
+      setTotalCount(Number(total));
+      setLoading(false);
     };
 
     fetchData();
   }, [currentPage]);
 
+  const totalPages = Math.ceil(totalCount / itemsPerPage);
+
+  const goToPage = (page) => {
+    setSearchParams({ page });
+  };
+
+  if (loading) {
+    return (
+      <div className="flex flex-col gap-4 p-4">
+        {new Array(itemsPerPage).fill(0).map((_, index) => (
+          <div
+            key={index}
+            className="p-4 border border-gray-200 rounded-lg shadow-sm animate-pulse bg-white"
+          >
+            {/* Title Skeleton
+            <div className="h-5 w-1/3 bg-gray-300 rounded mb-3"></div> */}
+
+            {/* Email Skeleton */}
+            <div className="h-4 w-1/2 bg-gray-200 rounded mb-2"></div>
+
+            {/* Extra Line Skeleton */}
+            <div className="h-4 w-2/3 bg-gray-200 rounded"></div>
+          </div>
+        ))}
+      </div>
+      // <div className="h-screen flex justify-center items-center">
+      //   <div className="border-8 border-green-500 border-t-transparent  animate-spin h-10 w-10 rounded-full">
+      //   </div>
+      // </div>
+    );
+  }
+
+
   return (
     <div style={{ padding: "20px" }}>
-      <h2>Server-Side Pagination</h2>
+      <h2>Server-Side Pagination (Query Params)</h2>
 
-
-            {
-                console.log(data)
-            }
-
-      {/* Render users */}
       {data.map((user) => (
         <div
           key={user.id}
@@ -43,27 +81,27 @@ function ServerPagination() {
             borderRadius: "5px",
           }}
         >
-
           <h3>{user.name}</h3>
           <p>Email: {user.email}</p>
         </div>
       ))}
 
-      {/* Pagination controls */}
-      <div style={{ marginTop: "20px", display: "flex", gap: "10px" }}>
+      <div style={{ display: "flex", gap: "10px", marginTop: "20px" }}>
+        {/* Prev */}
         <button
           disabled={currentPage === 1}
-          onClick={() => setCurrentPage((p) => p - 1)}
+          onClick={() => goToPage(currentPage - 1)}
         >
           Prev
         </button>
 
-        {[...Array(totalPages)].map((_, index) => {
+        {/* Page Numbers */}
+        {Array.from({ length: totalPages }).map((_, index) => {
           const page = index + 1;
           return (
             <button
               key={page}
-              onClick={() => setCurrentPage(page)}
+              onClick={() => goToPage(page)}
               style={{
                 padding: "5px 10px",
                 background: currentPage === page ? "#000" : "#fff",
@@ -76,9 +114,10 @@ function ServerPagination() {
           );
         })}
 
+        {/* Next */}
         <button
           disabled={currentPage === totalPages}
-          onClick={() => setCurrentPage((p) => p + 1)}
+          onClick={() => goToPage(currentPage + 1)}
         >
           Next
         </button>

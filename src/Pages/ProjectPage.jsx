@@ -18,6 +18,8 @@ function ProjectPage() {
 
     return (
         <div className='mb-20'>
+
+            <button onClick={() => navigate('/login')} className='px-4 py-2 shadow rounded bg-red-400'>Navigate to login</button>
             <div className='grid grid-cols-4 gap-5 m-5'>
                 {
                     projectData.map((project, index) => {

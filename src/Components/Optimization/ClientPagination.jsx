@@ -3,12 +3,12 @@ import React, { useEffect, useState } from "react";
 function ClientPagination() {
   const [data, setData] = useState([]);          // store entire dataset (fetched once)
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5;                        // showing 5 items per page
+  const itemsPerPage = 20;                        // showing 5 items per page
 
   // Fetch once when component loads
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch("https://jsonplaceholder.typicode.com/users");
+      const res = await fetch("https://jsonplaceholder.typicode.com/comments");
       const json = await res.json();
       setData(json);                             // save full data (we paginate this locally)
     };
@@ -47,9 +47,11 @@ function ClientPagination() {
         </div>
       ))}
 
-      {/* Pagination Buttons */}
-      <div style={{ marginTop: "20px", display: "flex", gap: "10px" }}>
-        
+
+
+      <div className="flex gap-4">
+
+
         {/* Previous Button */}
         <button
           disabled={currentPage === 1}
@@ -57,27 +59,31 @@ function ClientPagination() {
         >
           Prev
         </button>
+        {/* Pagination Buttons */}
+        <div className="w-400 overflow-auto" style={{ marginTop: "20px", display: "flex", gap: "10px" }}>
 
-        {/* Page Numbers */}
-        {[...Array(totalPages).keys()].map((num, index) => {
-          const page = num + 1;
-          return (
-            <button
-              key={page}
-              onClick={() => setCurrentPage(page)}
-              style={{
-                padding: "5px 10px",
-                background: currentPage === page ? "#000" : "#fff",
-                color: currentPage === page ? "#fff" : "#000",
-                border: "1px solid #ccc",
-                cursor: "pointer",
-              }}
-            >
-              {page}
-            </button>
-          );
-        })}
 
+          {/* Page Numbers */}
+          {new Array(totalPages).fill(0).map((_, index) => {
+            const page = index + 1;
+            return (
+              <button
+                key={page}
+                onClick={() => setCurrentPage(page)}
+                style={{
+                  padding: "5px 10px",
+                  background: currentPage === page ? "#000" : "#fff",
+                  color: currentPage === page ? "#fff" : "#000",
+                  border: "1px solid #ccc",
+                  cursor: "pointer",
+                }}
+              >
+                {page}
+              </button>
+            );
+          })}
+
+        </div>
         {/* Next Button */}
         <button
           disabled={currentPage === totalPages}
@@ -85,7 +91,9 @@ function ClientPagination() {
         >
           Next
         </button>
+
       </div>
+
     </div>
   );
 }

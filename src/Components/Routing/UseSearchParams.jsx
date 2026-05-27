@@ -36,9 +36,9 @@ function UseSearchParams() {
 
             <div className='shadow m-10 p-10'>
                 Result:
-                <p>{page}</p>
-                <p>{item}</p>
-                <p>{color}</p>
+                <p>item: {item}</p>
+                <p>page: {page}</p>
+                <p>color: {color}</p>
                 <p>Query: {q}</p>
                 <p>Price:{price}</p>
             </div>

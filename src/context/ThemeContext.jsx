@@ -9,8 +9,13 @@ function ThemeContextProvider({ children }) {
         setTheme(theme === "dark" ? "light" : "dark")
     }
 
+    const login =() =>{
+        
+    }
+
     return (
         <div>
+            {/* <ThemeContext.Provider value={{ theme, setTheme, toggleTheme}}> */}
             <ThemeContext.Provider value={{ theme, setTheme, toggleTheme}}>
                 {children}
             </ThemeContext.Provider>
@@ -18,10 +23,13 @@ function ThemeContextProvider({ children }) {
     )
 }
 
+export const useTheme= () =>{
+    return useContext(ThemeContext)
+}
+
 export default ThemeContextProvider
 
 
-export const useTheme=()=>{
-    const obj= useContext(ThemeContext)
-    return obj
-}
+// export const useTheme=()=> useContext(ThemeContext)
+
+

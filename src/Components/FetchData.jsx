@@ -8,10 +8,8 @@ function FetchData({ endpoint }) {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-
     setLoading(true);
     setError(null);
-
     fetch(`${BASE_URL}/${endpoint}`)
       .then((response) => {
         if (!response.ok) {
@@ -52,17 +50,17 @@ function FetchData({ endpoint }) {
       {/* If data is a single object, wrap into array */}
       {Array.isArray(data)
         ? data.map((item) => (
-            <div key={item.id} className="border m-3 p-4 rounded-xl">
-              <h3 className="font-bold text-lg">{item.title}</h3>
-              <p>{item.body}</p>
-            </div>
-          ))
+          <div key={item.id} className="border m-3 p-4 rounded-xl">
+            <h3 className="font-bold text-lg">{item.title}</h3>
+            <p>{item.body}</p>
+          </div>
+        ))
         : data && (
-            <div className="border m-3 p-4 rounded-xl">
-              <h3 className="font-bold text-lg">{data.title}</h3>
-              <p>{data.body}</p>
-            </div>
-          )}
+          <div className="border m-3 p-4 rounded-xl">
+            <h3 className="font-bold text-lg">{data.title}</h3>
+            <p>{data.body}</p>
+          </div>
+        )}
     </div>
   );
 }

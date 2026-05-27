@@ -12,6 +12,7 @@ function MultipleCheckBox() {
             setHobbies(hobbies.filter((hobby)=> hobby !== value))
         }
     }
+    console.log(hobbies)
 
     let handleSubmit= (e)=>{
         e.preventDefault()
