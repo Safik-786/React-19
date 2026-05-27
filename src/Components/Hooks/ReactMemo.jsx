@@ -13,17 +13,27 @@ function ReactMemo() {
             <button className="border" onClick={() => (setCount(count + 1))}>Increament</button>
             <button className="border" onClick={() => setObj({ ...obj, name: "safik" })}>Change Object</button>
             <h5>Hello from React Memo</h5>
+<<<<<<< HEAD
             <button className="border" onClick={() => setName("Rahul")}>ChangeName</button>
             {/* <ChildComp name={name} /> */}
             {/* <MemoizedChildComp obj={obj}/> */}
             <MemoizedChildComp name={name}/>
+=======
+            <button className="border" onClick={ ()=> setName("Rahul")}>ChangeName</button>
+            {/* <ChildComp  /> */}
+            <MemoizedChildComp name={name} />
+>>>>>>> a8a4fe20dc98445a755bc5a07087d7bed59cf799
         </div>
     )
 }
 export default ReactMemo
 
 
+<<<<<<< HEAD
 function ChildComp({ name }) {
+=======
+function ChildComp({name="abc"}) {
+>>>>>>> a8a4fe20dc98445a755bc5a07087d7bed59cf799
     return (
         <div style={{ border: "1px dotted red", paddingLeft: '50px' }}>
             {/* Object: {obj.name} */}

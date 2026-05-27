@@ -14,7 +14,7 @@ export default function PasswordStrengthChecker() {
     if (!password) return "";
     if (password.length < 4  ) return "Weak";
     if (password.length < 8   ) return "Medium";
-    if (password.length < 20 && password.includes("@")) return "Strong";
+    if (password.length > 8 && password.includes("@")) return "Strong";
     return "Normal"
   };
 

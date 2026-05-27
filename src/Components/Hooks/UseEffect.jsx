@@ -87,7 +87,7 @@ export { DependencyExample };
 
 
 function UseConditionalRendering() {
-  const [display, setDisplay] = useState(false)
+  const [display, setDisplay] = useState(true)
 
 
   return (
@@ -103,6 +103,6 @@ function UseConditionalRendering() {
   )
 }
 
-export default UseConditionalRendering
+export  {UseConditionalRendering}
 
 

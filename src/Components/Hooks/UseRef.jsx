@@ -7,6 +7,7 @@ function UseRef() {
 
     const handleBtnClick = () => {
         inputRef.current.style.color = "white"
+<<<<<<< HEAD
         inputRef.current.style.backgroundColor = "red"
     }
 
@@ -30,7 +31,18 @@ function UseRef() {
         <div ref={containerElement} onClick={handleContainerClick} className='h-screen' >
             Hello World
             <input ref={inputRef} placeholder="Type here..." />
+=======
+        containerElement.current.style.backgroundColor = "red"
+    }
+    const containerStyle = { backgroundColor: "red", color: "blue", }
+    console.log(inputRef)
+>>>>>>> a8a4fe20dc98445a755bc5a07087d7bed59cf799
 
+
+    return (
+        <div ref={containerElement} >
+            <input className='border' ref={inputRef} placeholder="Type here..." />
+            <br /> <br />
             <button onClick={handleBtnClick}>Change Color</button>
         </div>
     )

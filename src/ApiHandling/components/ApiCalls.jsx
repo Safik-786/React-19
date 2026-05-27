@@ -108,6 +108,25 @@ function ApiCalls() {
 
     let fetchData = async () => {
         try {
+<<<<<<< HEAD:src/Pages/ApiCalls.jsx
+=======
+            setLoading(true)
+            // fetch(`https://6901f2bfb208b24affe460ef.mockapi.io/users`)
+            //     .then((response) => {
+            //         {
+            //             console.log("response= ", response)
+            //             return response.json()
+            //         }
+            //     })
+            //     .then((data) => {
+            //         setData(data)
+            //         console.log(data)
+            //     })
+            //     .catch((error)=>{
+            //         console.log("error during the  api call", error)
+            //         setError(error)
+            //     })
+>>>>>>> a8a4fe20dc98445a755bc5a07087d7bed59cf799:src/ApiHandling/components/ApiCalls.jsx
             const response = await fetch(`https://6901f2bfb208b24affe460ef.mockapi.io/users`)
             const data = await response.json()
             setData(data)
@@ -154,7 +173,11 @@ function ApiCalls() {
 
             <div className='grid grid-cols-10 gap-4 pb-10'>
                 {
+<<<<<<< HEAD:src/Pages/ApiCalls.jsx
                     data.map((item) => {
+=======
+                    data ? data?.map((item => {
+>>>>>>> a8a4fe20dc98445a755bc5a07087d7bed59cf799:src/ApiHandling/components/ApiCalls.jsx
                         return (
                             <div key={item.id} className='shadow rounded' >
                                 <h3>{item.id}</h3>
@@ -164,7 +187,13 @@ function ApiCalls() {
                                 <p>{item.body}</p>
                             </div>
                         )
+<<<<<<< HEAD:src/Pages/ApiCalls.jsx
                     })
+=======
+                    }))
+                    :
+                    <h2>Data not Found</h2>
+>>>>>>> a8a4fe20dc98445a755bc5a07087d7bed59cf799:src/ApiHandling/components/ApiCalls.jsx
                 }
             </div>
 

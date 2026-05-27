@@ -17,7 +17,12 @@ function AllInputFieldsFormReactHookForm() {
                 onSubmit={handleSubmit(submitForm)}
                 className="w-full max-w-2xl bg-white p-8 rounded-lg shadow-lg space-y-8"
             >
+<<<<<<< HEAD
                 <h2 className="text-3xl font-bold text-center">
+=======
+
+                <h2 className="text-2xl font-semibold text-center mb-2">
+>>>>>>> a8a4fe20dc98445a755bc5a07087d7bed59cf799
                     React Hook Form - All Input Types
                 </h2>
                 {/* basic text/number inputs */}
@@ -100,7 +105,6 @@ function AllInputFieldsFormReactHookForm() {
 
 
                 {/* CHECKBOX */}
-
                 <label className="flex gap-2 items-center">
                     <input {...register("subscribe")} type="checkbox" />
                     Subscribe to newsletter

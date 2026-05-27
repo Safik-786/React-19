@@ -8,11 +8,6 @@ function ThemeContextProvider({ children }) {
     const toggleTheme= () => {
         setTheme(theme === "dark" ? "light" : "dark")
     }
-
-    const login =() =>{
-        
-    }
-
     return (
         <div>
             {/* <ThemeContext.Provider value={{ theme, setTheme, toggleTheme}}> */}

@@ -70,7 +70,25 @@ function UseMemo() {
   }, [n])
 
 
+<<<<<<< HEAD
   // const sum= findNthSum(n)
+=======
+    
+    //   SOLUTION
+    const sumUpto1000=  useMemo(()=>{
+      return findNthSum(1000)
+    }, [])
+    const sumUpto10000=  useMemo(()=>{
+      return findNthSum(10000)
+    }, [count])
+
+
+    // OR
+    // const [sumUpto1000, sumUpto10000]= useMemo(()=>{
+    //   return [findNthSum(1000), findNthSum(10000)]
+    // },[])
+
+>>>>>>> a8a4fe20dc98445a755bc5a07087d7bed59cf799
 
   return (
     <div style={{ border: "1px dotted green", paddingLeft: "50px" }}>

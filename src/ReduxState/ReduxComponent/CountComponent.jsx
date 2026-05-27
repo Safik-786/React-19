@@ -9,10 +9,12 @@ function CountComponent() {
   
   const counterState = useSelector((state) => state.count)
   console.log(counterState)
+
+
   const dispatch = useDispatch()
 
 
-  let handleSubmit= (e)=>{
+  let handleSubmit = (e) => {
     e.preventDefault()
     dispatch(customIncreament(Number(amount)))
   }
@@ -20,27 +22,46 @@ function CountComponent() {
     dispatch(customDecreament(Number(amount)))
   }
 
+  let handleCustomDecreament= ()=>{
+    dispatch(customDecreament(amount))
+  }
+
 
   console.log("wekjfbehjwgfj3g")
 
   return (
-    <div>
+    <div className='ps-30'>
 
       <h2>Counter: {counterState.count}</h2>
+<<<<<<< HEAD
       <button className='shadow p-1 m-2 rounded' onClick={() => dispatch(increament())}>Increament</button>
       <button className='shadow p-1 m-2 rounded' onClick={() => dispatch(decreament())}>Decreament</button>
       <button className='shadow p-1 m-2 rounded' onClick={() => dispatch(customIncreament(20))}>Increament 20</button>
       <button className='shadow p-1 m-2 rounded' onClick={() => dispatch(reset())}>Reset</button>
    
+=======
+
+
+      <button className='shadow p-1 m-2 cursor-pointer rounded' onClick={() => dispatch(increament())}>Increament</button>
+      <button className='shadow p-1 m-2 cursor-pointer rounded' onClick={() => dispatch(decreament())}>Decreament</button>
+
+
+>>>>>>> a8a4fe20dc98445a755bc5a07087d7bed59cf799
       <form action="" onSubmit={handleSubmit}>
         <input type="number" className='border' value={amount} onChange={(e) => setAmount(e.target.value)} />
-        <button className='rounded shadow'>Add Amount</button>
+        <button className='shadow p-1 m-2 bg-green-50 text-green-700 rounded'>Add Amount</button>
       </form>
 
       <button onClick={handleCustomDecreament}>Custom Decrement</button>
 
+      <button className='shadow p-1 m-2 bg-red-50 text-red-700 rounded' onClick={handleCustomDecreament}>Remove  Amount</button>
 
+<<<<<<< HEAD
       {/* <button className='shadow p-1 m-2 rounded' onClick={() => dispatch(customIncreament(80))}>Custom  increament</button> */}
+=======
+      {/* <button className='shadow p-1 m-2 bg-green-50 rounded' onClick={() => dispatch(customIncreament(80))}>Custom  increament</button> */}
+      <button className='shadow p-1 m-2 rounded' onClick={() => dispatch(reset())}>Reset</button>
+>>>>>>> a8a4fe20dc98445a755bc5a07087d7bed59cf799
 
 
     </div>

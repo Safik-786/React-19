@@ -14,7 +14,6 @@ export function useAuth() {
 
 function ProtectedRoute({ children }) {
     const  isAuthenticated = useAuth()
-    console.log(isAuthenticated)
     if (!isAuthenticated) {
         // logout logic
         return <Navigate to={"/login" } replace />

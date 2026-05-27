@@ -7,7 +7,7 @@ function DisplayData() {
 
     let fetchData = async () => {
         let data = await axiosInstancs.get('/users')
-        console.log("   data:", data)
+        console.log(" data:", data)
         if (data.status === 200) {
             setData(data.data)
         }
