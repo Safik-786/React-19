@@ -4,5 +4,5 @@ import cartReducer from "./cartReducer";
 
 export const reducers= combineReducers({
     count: counterReducer,
-    cart: cartReducer
+    // cart: cartReducer
 })
