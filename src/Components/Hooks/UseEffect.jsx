@@ -14,8 +14,6 @@ const DependencyExample = () => {
   useEffect(
     () => {
       console.log("🎯 useEffect ran because COUNT changed!");
-      
-
       return () => {
         console.log("🧹 Cleanup before COUNT effect runs again or unmount");
       };
@@ -68,8 +66,6 @@ const DependencyExample = () => {
       <h2>Count: {count}</h2>
 
       <button className="border p-2" onClick={() => setCount(count + 1)}>Increment Count</button>
-
-
 
       <h2>Text: {text}</h2>
 

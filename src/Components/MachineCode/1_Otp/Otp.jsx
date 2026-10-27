@@ -36,8 +36,6 @@ function Otp({ otpLength = 6, initialotp = "123456" }) {
             return
         }
 
-
-
         if (key === "ArrowRight") {
             if (index + 1 < otpField.length) {
                 inputRef.current[index + 1].focus()
@@ -90,7 +88,6 @@ function Otp({ otpLength = 6, initialotp = "123456" }) {
         copyOtpField[index] = key
 
         if (index + 1 < otpField.length) {
-
             inputRef.current[index + 1].focus()
         }
         setOtpFields(copyOtpField)

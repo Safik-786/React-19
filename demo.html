@@ -1,44 +1,68 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>Redux Concept - Vanilla JS</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .container{
+      margin: 20px;
+      perspective: 300px;
+      display: flex;
+      height: 300px;
+      width: 200px;
+      border: 1px solid black;
+    }
+
+    .card{
+      height: 100%;
+      width: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.6s ease-in-out;
+    }
+
+    .container:hover .card {
+      transform: rotateY(180deg);
+    }
+
+    .face{
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-family: sans-serif;
+      color: white;
+      backface-visibility: hidden;
+    }
+
+    .front{
+      background-color: red;
+    }
+
+    .rear{
+      transform: rotateY(180deg);
+      background-color: green;
+    }
+  </style>
+
+  
 </head>
+
 <body>
 
-  <h1 id="count">0</h1>
-
-  <button onclick="dispatch({ type: 'INCREMENT' })">+</button>
-  <button onclick="dispatch({ type: 'DECREMENT' })">-</button>
-
-  <script>
-    // STATE
-    let state = 0;
-
-    // REDUCER
-    function counterReducer(state, action) {
-      if (action.type === "INCREMENT") {
-        return state + 1;
-      }
-      if (action.type === "DECREMENT") {
-        return state - 1;
-      }
-      return state;
-    }
-
-    // DISPATCH
-    function dispatch(action) {
-      state = counterReducer(state, action);
-      render();
-    }
-
-    // UI UPDATE
-    function render() {
-      document.getElementById("count").innerText = state;
-    }
-
-    // Initial render
-    render();
-  </script>
+  <div class="container">
+    <div class="card">
+      <div class="face front">Front</div>
+      <div class="face rear">Rear</div>
+    </div>
+  </div>
 
 </body>
+
 </html>

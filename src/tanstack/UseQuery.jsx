@@ -3,7 +3,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { axiosInstancs } from "../ApiHandling/api/axios";
 
-export default function App() {
+export default function UseQuery() {
     const queryClient = useQueryClient();
     const [title, setTitle] = useState("");
 
@@ -18,7 +18,7 @@ export default function App() {
     }
 
     // READ (GET)
-    const { data: users, isLoading, isError, error} = useQuery({
+    const { data: users, isLoading, isError, error } = useQuery({
         queryKey: ["users"],
         queryFn: fetchData
     });
@@ -35,8 +35,8 @@ export default function App() {
     });
 
     // ✅ UPDATE (PUT)
-    const updatepost = useMutation({
-        mutationFn: async (updatedPost,  id) => {
+    const updatePost = useMutation({
+        mutationFn: async ({ id, updatedPost }) => {
             const res = await axiosInstancs.put(`/users/${id}`, updatedPost);
             return res.data;
         },
@@ -44,8 +44,6 @@ export default function App() {
             queryClient.invalidateQueries({ queryKey: ["users"] });
         },
     });
-
-    updatepost.mutateAsync({ title: "Updated Title" }, 1) // Example usage: update post with ID 1
 
     // ✅ DELETE (DELETE)
     const deletePost = useMutation({
@@ -61,14 +59,10 @@ export default function App() {
 
     if (isError) return <p>Error: {error.message}</p>;
 
-    let formData={"title":title,"body":"Demo body","userId":1}
-
-    const handleCreatepost = () => {
-        createPost.mutateAsync(formData);
+    const handleCreatePost = () => {
+        createPost.mutate({ title, body: "Demo body", userId: 1 });
         setTitle("");
-    }
-createPost.isError
-createPost.isPending
+    };
 
     return (
         <div style={{ padding: 20 }}>
@@ -81,9 +75,7 @@ createPost.isPending
                 placeholder="New post title"
             />
             <button
-                onClick={() =>
-                    createPost.mutate({ title, body: "Demo body", userId: 1 })
-                }
+                onClick={handleCreatePost}
             >
                 Add Post
             </button>
@@ -91,16 +83,24 @@ createPost.isPending
             <hr />
 
             {/* READ */}
-            {users?.map((post) => (
+            {[...users]?.reverse()?.map((post) => (
                 <div key={post.id} style={{ marginBottom: 10 }}>
+
+                    <h1>{post.name}</h1>
+                    <div style={{ width: "200px", height: "200px" }}>
+                        <img src={post.avatar} alt="" />
+                    </div>
                     <strong>{post.title}</strong>
 
                     {/* UPDATE */}
                     <button
                         onClick={() =>
                             updatePost.mutate({
-                                ...post,
-                                title: post.title + " (Updated)",
+                                id: post.id,
+                                updatedPost: {
+                                    ...post,
+                                    title: post.title + " (Updated)",
+                                },
                             })
                         }
                         style={{ marginLeft: 10 }}
